@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
+@app.route("/")
+def index():
+    return "Twitter to Discord Webhook Middleware is running!"
+
 @app.route("/webhook", methods=["POST"])
 def handle_webhook():
     data = request.json
